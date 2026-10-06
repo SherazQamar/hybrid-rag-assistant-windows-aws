@@ -1,0 +1,136 @@
+@all Guys, client says: “Prove you can do it.”
+
+Please suggest a small POC/demo we can provide to prove capability for this project.
+
+Full project free mein nahi banana — just a focused proof of capability.
+
+AI agent with AWS Access for Windows
+build an example AI agent and teach me to reproduce it independently, end to end.
+
+AI Agent Tutor for Python FastAPI
+
+Hybrid RAG, AWS & Security Testing
+1 Python/FastAPI
+2 AI Agent Tutor
+3 Hybrid RAG
+4 AWS
+5 Security Testing
+
+
+as base you can use some project from github
+for example https://github.com/DaVinci-Code-ai/RAG_chatbot but it is your final responsibility to make it work
+Include a FastAPI backend, Python-driven frontend/admin, memory within/between chats, and hybrid RAG. Run the application on Windows with secure AWS access and a very low-cost AWS-hosted database.
+
+One fixed-price project covers the application, deployment, security, tests, source code, reports, screenshot-based DOCX manual, videos, and handover.
+
+1. Python application, frontend, and admin
+
+Use Python for the application and all custom tests, with FastAPI and a compatible Python-driven UI. Framework-generated browser code is acceptable; no separate JavaScript/TypeScript application. Supporting HTML/CSS, SQL, configuration, and PowerShell are acceptable.
+
+Choose an example such as a document knowledge assistant. Explain architecture, model/provider, dependencies, hardware, and costs. Include a bounded agent action such as search or saving an approved note; no unrestricted command/file access.
+
+Users need login/logout, new chats, history, uploads, processing status, source references, and memory controls. Admins need user/role management, account deactivation, shared documents, ingestion status, usage/errors, and configuration profiles.
+
+Deliver readable code, pinned dependencies, and secret-free configuration templates.
+
+2. Memory within and between chats
+
+Implement within-chat context and user-specific memory recalled in new chats after logout, application restart, and Windows reboot. Chat-history storage alone is insufficient.
+
+Explain storage, context limits, and differences between history, memory, and RAG. Users must be able to inspect/delete history and memory. Isolate private data.
+
+3. Hybrid RAG and flexible chunking
+
+Support .md, .txt, text-based .pdf, and .docx; state whether OCR is included. Implement validation, extraction, chunking, embeddings, indexing, status, and errors.
+
+Provide selectable dense-only, keyword-only, and hybrid retrieval. Explain the similarity metric, actual lexical algorithm, and fusion method; do not claim BM25 unless implemented.
+
+Admins must be able to inspect queries, chunks, sources, component scores/rankings, and final rankings. Answers need document and available page/section/chunk references. Test unsupported questions.
+
+Support private and shared documents with retrieval-time permissions. Deletion must remove active retrieval entries; explain treatment of originals, previous answers, and backups.
+
+Provide admin settings without editing Python: at least two chunking strategies, chunk size with token/character units, overlap including zero, relevant text boundaries, separate dense/keyword candidate counts, hybrid weights/fusion parameters, and final context size. Record embedding model/dimensions.
+
+Include saved/exportable/importable profiles, three examples, and chunk previews with text, boundaries, sizes, sources, and settings.
+
+Implement versioned reindexing with progress/errors. Explain when re-chunking/re-embedding is needed. Prevent stale/duplicate chunks, incompatible embeddings, and incomplete rebuilds becoming active.
+
+4. Low-cost AWS database and Windows deployment
+
+Prefer PostgreSQL with pgvector and full-text search on small EC2/Lightsail hosting, also storing conversations, memory, metadata, and settings. Justify alternatives and validate sizing.
+
+Teach installation, secure access, schema/migrations, backups/restoration, updates, and original-file storage. No unrestricted public database access.
+
+Run the main application directly on Windows—no Docker/containers. Remote users must reach it over HTTPS through AWS. Do not move the main application to AWS. No third-party hosted tunnels and no inbound home/office router port forwarding.
+
+Demonstrate the network path; SSM is preferred where suitable. Validate forwarding direction, Windows compatibility, unattended credentials, and reconnection. Justify origin restrictions and CloudFront/WAF or alternatives.
+
+Automate startup/recovery after reboot, crashes, and network loss. Explain availability limits.
+
+I will not provide my AWS account or credentials. Develop, record, and test in your own authorized account. My later deployment must not depend on your accounts/resources.
+
+Disclose development AWS/API expenses and itemize all recurring infrastructure/model costs, including networking, security, backups, and monitoring. Separate temporary free-tier benefits.
+
+5. Mandatory protection against hacking and automation
+
+Protect the Windows host, application, AWS resources, database, Python source, secrets, documents, conversations, and memory.
+
+Authorized testing using this exact repository is required:
+https://github.com/whaleyxbt/patchright-enhanced
+
+Also use Python Playwright and direct HTTP requests. Review/pin the exact repository revision. Disclose/isolate external runtimes; custom tests/orchestration stay in Python. No silent substitution.
+
+Prevent unauthorized actions even when browser/WAF checks are passed. Report browser detection separately from authentication, authorization, and quotas.
+
+Implement and test:
+
+Approved accounts, MFA, invalid/expired-session rejection, account deactivation, role checks, and cross-user isolation, including modified requests.
+Protection of source, .env, repository metadata, backups, configuration, and secrets.
+Relevant SQL/command injection, path traversal, XSS, CSRF, and unsafe-upload defenses.
+Backend-enforced agent permissions against malicious prompts and instructions embedded in documents.
+Least-privilege AWS/database access, a non-admin Windows service account, origin restrictions, and encrypted connections.
+Account quotas, concurrency/upload/processing limits, and controlled overload handling.
+
+Test only authorized infrastructure. Deliver repeatable tests, results/evidence, and remaining risks; fix failed agreed tests. No “unhackable” promises or WAF-only acceptance.
+
+6. Python Playwright simulated dialogues and parallel users
+
+Use Python Playwright/pytest against the real frontend through AWS to Windows. API tests cannot replace browser tests.
+
+Provide editable JSON/YAML dialogues with prompts, expected facts/sources, fixtures, and settings. Cover application/admin workflows, all file types, memory, retrieval modes, profile changes, reindexing, deletion, isolation, authentication, and limits.
+
+Assert known facts/sources, not identical wording or merely a nonempty response. Explain MFA testing without weakening authentication.
+
+Support 5, 10, 25, and 50 users. Quote for 25 concurrently active authenticated users as the proposed acceptance workload and 50 as a stress test; disclose deviations in your bid.
+
+Use separate accounts/browser contexts, overlapping activity, and at least 10 exchanges per user. Document ramp-up, think time, duration, corpus, model settings, and actual overlap.
+
+Include live-model/real-retrieval tests, not only mocks. Agree on hardware-dependent latency/error targets before contracting.
+
+Provide commands for setup, suite/concurrency selection, reports, and cleanup. Deliver transcripts, results, failure screenshots, traces/logs, median/p95 latency, throughput, errors, resource use, and API costs. Measure load-generator limits and first-output/full-response streaming latency.
+
+7. Monitoring and operational recovery
+
+Configure CloudWatch logs/metrics for errors, authentication, latency, usage, resources, and health. Test email alerts, set retention, and protect sensitive logs.
+
+Demonstrate failure/reboot recovery and backup/restore. Document credential replacement, updates, troubleshooting, and cleanup.
+
+8. Detailed DOCX manual and matching videos
+
+Deliver an editable Word .docx manual from a clean starting environment. Every actionable setup/configuration step needs a real readable screenshot, numbered instructions, copyable commands/settings, purpose, expected result, and verification. Include common errors/fixes.
+
+Cover prerequisites, code structure, agent/memory/RAG, settings experiments, database, AWS, authentication/security, tests, monitoring, recovery, updates, costs, and complete cleanup. Distinguish Windows/server commands and explain placeholders. Include contents, architecture, exact versions, and no real secrets.
+
+Deliver narrated MP4 videos following the same DOCX section/step numbers, with a timestamp index. Show the actual complete setup, application features, security assessment including the linked repository, and parallel-dialogue tests.
+
+No skipped prerequisites or undocumented preconfiguration. Videos, screenshots, and code must match. Teach me to modify both the Python application and Python tests.
+
+9. Handover, acceptance, and proposal
+
+Deliver the repository, dependencies, configuration/migration/deployment/recovery scripts, fixtures, tests, reports, DOCX, and videos.
+
+Demonstrate a fresh rebuild on clean Windows and new AWS resources using the instructions. Correct missing steps, mismatches, and failed tests.
+
+acceptance requires working features, security/performance tests, recovery, complete teaching materials, and reproducibility without your accounts or embedded secrets.
+
+Bid with one total fixed price, schedule, architecture/database sizing, costs, thresholds, assumptions/exclusions, relevant experience, tutorial sample, included teaching/Q&A, and support for implementation/documentation defects. Explain Python-led testing of the exact linked repository

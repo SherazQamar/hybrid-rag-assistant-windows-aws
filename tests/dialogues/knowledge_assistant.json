@@ -1,0 +1,32 @@
+{
+  "description": "Editable browser dialogues. Each step asserts FACTS and SOURCES, never exact wording.",
+  "settings": {"mode": "hybrid", "answer_timeout_ms": 60000},
+  "dialogues": [
+    {
+      "name": "policy-questions",
+      "steps": [
+        {"ask": "How many days of paid annual leave do employees receive?", "expect_facts": ["24 days"], "expect_sources": ["employee_handbook.md"]},
+        {"ask": "How many unused leave days can be carried over?", "expect_facts": ["5 unused days"], "expect_sources": ["employee_handbook.md"]},
+        {"ask": "What is the daily meal per diem for travel?", "expect_facts": ["65 US dollars"], "expect_sources": ["travel_policy.docx"]},
+        {"ask": "Which class must flights shorter than 6 hours use?", "expect_facts": ["economy"], "expect_sources": ["travel_policy.docx"]}
+      ]
+    },
+    {
+      "name": "product-and-report",
+      "steps": [
+        {"ask": "What does the SolarBox 3000 cost?", "expect_facts": ["1,299"], "expect_sources": ["product_faq.txt"]},
+        {"ask": "and its capacity?", "expect_facts": ["13.5 kWh"], "expect_sources": ["product_faq.txt"]},
+        {"ask": "What was revenue in the third quarter of 2026?", "expect_facts": ["4.2 million"], "expect_sources": ["quarterly_report.pdf p.1"]},
+        {"ask": "Where will the new engineering office open?", "expect_facts": ["Austin"], "expect_sources": ["quarterly_report.pdf p.2"]}
+      ]
+    },
+    {
+      "name": "unsupported-and-memory",
+      "steps": [
+        {"ask": "What is the capital city of Mongolia?", "expect_refusal": true},
+        {"ask": "Remember that my team is the Phoenix squad", "expect_pending_memory": true, "approve": true},
+        {"ask": "Which squad is my team?", "new_chat": true, "expect_facts": ["Phoenix"]}
+      ]
+    }
+  ]
+}
